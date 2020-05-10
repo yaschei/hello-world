@@ -48,8 +48,10 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../testGitHub/main.cpp 
-OBJECTS       = main.o
+SOURCES       = ../testGitHub/main.cpp \
+		../testGitHub/Node.cpp 
+OBJECTS       = main.o \
+		Node.o
 DIST          = /opt/Qt5.6.3/5.6.3/gcc_64/mkspecs/features/spec_pre.prf \
 		/opt/Qt5.6.3/5.6.3/gcc_64/mkspecs/common/unix.conf \
 		/opt/Qt5.6.3/5.6.3/gcc_64/mkspecs/common/linux.conf \
@@ -146,7 +148,8 @@ DIST          = /opt/Qt5.6.3/5.6.3/gcc_64/mkspecs/features/spec_pre.prf \
 		/opt/Qt5.6.3/5.6.3/gcc_64/mkspecs/features/exceptions.prf \
 		/opt/Qt5.6.3/5.6.3/gcc_64/mkspecs/features/yacc.prf \
 		/opt/Qt5.6.3/5.6.3/gcc_64/mkspecs/features/lex.prf \
-		../testGitHub/testGitHub.pro  ../testGitHub/main.cpp
+		../testGitHub/testGitHub.pro Node.h ../testGitHub/main.cpp \
+		../testGitHub/Node.cpp
 QMAKE_TARGET  = testGitHub
 DESTDIR       = 
 TARGET        = testGitHub
@@ -397,6 +400,9 @@ compiler_clean:
 
 main.o: ../testGitHub/main.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../testGitHub/main.cpp
+
+Node.o: ../testGitHub/Node.cpp ../testGitHub/Node.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Node.o ../testGitHub/Node.cpp
 
 ####### Install
 
